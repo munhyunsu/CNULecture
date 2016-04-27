@@ -68,12 +68,7 @@ public class Main {
 		System.out.println(ca1.GetI());
 		System.out.println(ca2.GetI());
 
-
-
 	}
-
-
-
 
 	public static Set<ColorPoint> blueSet(Set<ColorPoint> original) {
 		ColorPoint[] value_array = original.toArray(new ColorPoint[0]);
