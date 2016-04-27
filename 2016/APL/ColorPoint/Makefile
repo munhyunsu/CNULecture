@@ -37,7 +37,10 @@ JVMFLAGS =
 # CLASSES is a macro consisting of 4 words (one for each java source file)
 #
 CLASSES = \
-	ColorPoint.java
+	Color.java \
+	Point.java \
+	ColorPoint.java \
+	Main.java
 
 
 #
@@ -66,7 +69,7 @@ clean:
 #
 # Main Class
 #
-MAIN = ColorPoint
+MAIN = Main
 
 
 #
