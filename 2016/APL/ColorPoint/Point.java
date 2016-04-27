@@ -17,4 +17,13 @@ public class Point {
 
 		return (p.x == x) && (p.y == y);
 	}
+
+	@Override
+	public int hashCode() {
+		int f = this.x;
+		f = f * this.y;
+		f = f + this.y;
+
+		return f;
+	}
 }
