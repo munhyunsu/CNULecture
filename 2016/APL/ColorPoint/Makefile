@@ -39,6 +39,7 @@ JVMFLAGS =
 CLASSES = \
 	Color.java \
 	Point.java \
+	CloneA.java \
 	ColorPoint.java \
 	Main.java
 

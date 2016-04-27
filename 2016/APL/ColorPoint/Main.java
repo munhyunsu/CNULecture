@@ -53,12 +53,27 @@ public class Main {
 		}
 
 		Set<ColorPoint> colorPointSet3 = blueSet(colorPointSet2);
+		colorPointSet3.add(new ColorPoint(1, 3, Color.RED));
+		colorPointSet3.add(new ColorPoint(1, 3, Color.RED));
 
 		it = colorPointSet3.iterator();
 		while(it.hasNext()) {
 			System.out.println(it.next());
 		}
+
+		
+		CloneA ca1 = new CloneA(1);
+		CloneA ca2 = ca1.clone();
+
+		System.out.println(ca1.GetI());
+		System.out.println(ca2.GetI());
+
+
+
 	}
+
+
+
 
 	public static Set<ColorPoint> blueSet(Set<ColorPoint> original) {
 		ColorPoint[] value_array = original.toArray(new ColorPoint[0]);
@@ -69,8 +84,12 @@ public class Main {
 
 			@Override
 			public boolean add(ColorPoint cp) {
-				al.add(cp);
-				return true;
+				if(al.contains(cp)) {
+					return false;
+				} else {
+					al.add(cp);
+					return true;
+				}
 			}
 
 			@Override
