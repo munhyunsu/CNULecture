@@ -1,4 +1,4 @@
-function root=regular(a0, b0, max_iterate, index_f)
+function root=regular(a0, b0, index_f)
 	if a0 >= b0
 		disp('a0 < b0 is not true. Stop!')
 		return
@@ -12,7 +12,10 @@ function root=regular(a0, b0, max_iterate, index_f)
 		return
 	end
 
-	for i = 0:max_iterate
+	
+	bx = 0; cx = 1;
+	while(bx != cx)
+		bx = cx;
 		fa = f(a, index_f); fb = f(b, index_f);
 		m = (fb - fa)/(b-a);
 		x = a - (fa/m);
@@ -27,7 +30,8 @@ function root=regular(a0, b0, max_iterate, index_f)
 		endif
 
 		disp([a, b])
-	endfor
+		cx = x;
+	endwhile
 
 	root = x;
 endfunction
