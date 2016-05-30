@@ -73,6 +73,7 @@ public class Main {
 			channel.register(slt, SelectionKey.OP_WRITE );
 		} else {
 			System.out.println("연결 미완료");
+			//System.out.println("finishConnect(): " + Boolean.toString(channel.finishConnect()));
 	//		channel.configureBlocking(false);
 			channel.register(slt, SelectionKey.OP_CONNECT );
 		}
@@ -153,7 +154,7 @@ public class Main {
 						/**
 						 * 연결 마무리: 이제부터 isConnectable()은 false가 뜬다
 						 */
-						((SocketChannel)key.channel()).finishConnect();
+						System.out.println("finishConnect(): " + Boolean.toString(((SocketChannel)key.channel()).finishConnect()));
 						/**
 						 * 요청을 전송할 수 있는 모드를 대기하도록 변경
 						 * OP_CONNECT와 OP_WRITE는 공존하지 않도록 할 것
@@ -165,6 +166,7 @@ public class Main {
 						 * 디버그용 출력
 						 */
 						System.out.println("isNotConnectable()");
+						System.out.println("finishConnect(): " + Boolean.toString(((SocketChannel)key.channel()).finishConnect()));
 					}
 
 					/**
