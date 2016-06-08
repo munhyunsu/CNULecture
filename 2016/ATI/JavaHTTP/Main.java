@@ -73,7 +73,8 @@ public class Main {
 			channel.register(slt, SelectionKey.OP_WRITE );
 		} else {
 			System.out.println("연결 미완료");
-			//System.out.println("finishConnect(): " + Boolean.toString(channel.finishConnect()));
+			System.out.println("finishConnect(): " + Boolean.toString(channel.finishConnect()));
+			System.out.println("isConnected(): " + Boolean.toString(channel.isConnected()));
 	//		channel.configureBlocking(false);
 			channel.register(slt, SelectionKey.OP_CONNECT );
 		}
@@ -143,6 +144,8 @@ public class Main {
 					 */
 					SelectionKey key = itr.next();
 					System.out.println(key);
+					System.out.println("finishConnect(): " + Boolean.toString(((SocketChannel)key.channel()).finishConnect()));
+					System.out.println("isConnected(): " + Boolean.toString(((SocketChannel)key.channel()).isConnected()));
 
 					/**
 					 * isConnectable(): connect()가 불렸으나 아직 finishConnect()가 되지 않은 상태에 true
