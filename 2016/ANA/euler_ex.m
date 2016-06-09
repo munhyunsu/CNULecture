@@ -4,8 +4,8 @@ k = 0;
 
 for t = [delta:delta:4*pi]
 	k = k + 1;
-	#y(k+1) = y(k) + (delta)*cos(t-delta);
-	y(k+1) = y(k) + (delta/2)*(cos(t-delta)+cos(t));
+	y(k+1) = y(k) + (delta)*cos(t-delta);
+	#y(k+1) = y(k) + (delta/2)*(cos(t-delta)+cos(t));
 end
 
 ft = [0:delta/10:4*pi];
