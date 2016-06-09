@@ -8,25 +8,32 @@ public class Worker implements Runnable {
     //public Worker(String name, Integer shareInt) {
     public Worker(String name) {
         //System.out.println(shareInt.hashCode());
-        System.out.println(System.identityHashCode(shareInt));
+        System.out.println(System.identityHashCode(Global.shareInt));
         this.name = name;
         //this.shareInt = shareInt;
     }
 
     @Override
 	public void run() {
-        synchronized (shareInt) {
+        Global.lock.lock();
+        try {
+//        synchronized (Global.shareInt) {
 		System.out.println(Thread.currentThread().getName() + " Start. Command = " + name);
 		processCommand();
 		System.out.println(Thread.currentThread().getName() + " End.");
+//        }
+        } finally {
+            Global.lock.unlock();
         }
 	}
 
 	private void processCommand() {
 //        synchronized (shareInt) {
-            shareInt = shareInt + 1;
-            System.out.println(name + ":\t" + shareInt.toString());
-            System.out.println(name + "Hash" + System.identityHashCode(shareInt));
+            Global.shareInt = Global.shareInt + 1;
+            while (Global.shareInt == 3) {
+            }
+            System.out.println(name + ":\t" + Global.shareInt.toString());
+            System.out.println(name + "Hash" + System.identityHashCode(Global.shareInt));
 //        }
 	}
 }
